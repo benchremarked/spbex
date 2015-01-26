@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using Server.Interfaces;
 using Server.Models;
@@ -9,7 +10,7 @@ namespace Server
 	{
 		#region Fields
 
-		private readonly Dictionary<IClient, QuoteFormat> quoteFormats = new Dictionary<IClient, QuoteFormat>();
+		private readonly ConcurrentDictionary<IClient, QuoteFormat> quoteFormats = new ConcurrentDictionary<IClient, QuoteFormat>();
 		private readonly ITransportServer server;
 		private bool isDisposed;
 
